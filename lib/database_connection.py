@@ -24,29 +24,10 @@ class DatabaseConnection:
             self.connection = psycopg.connect(
                 f"postgresql://localhost/{self._database_name()}",
                 row_factory=dict_row)
+        except psycopg.OperationalError:
+            raise Exception(f"Couldn't connect to the database {self._database_name()}! " \
+                    f"Did you create it using `createdb {self._database_name()}`?")
             
-        except:
-            try:
-                db_host = "postgres:5432"
-                db_name = self._database_name()
-                db_user = os.getenv("POSTGRES_USER")
-                db_password = os.getenv("POSTGRES_PASSWORD")
-            
-                if self.app:
-                    self.app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{db_user}:{db_password}@{db_host}/{db_name}"
-
-                # Construct the connection string
-                connection_string = f"postgresql://{db_user}:{db_password}@{db_host}/{db_name}"
-                self.connection = psycopg.connect(
-                    connection_string,
-                    row_factory=dict_row)
-
-            except psycopg.OperationalError:
-                raise Exception(f"Couldn't connect to the database {self._database_name()}! " \
-                        f"Did you create it using `createdb {self._database_name()}`?")
-            
-
-
     # This method seeds the database with the given SQL file.
     # We use it to set up our database ready for our tests or application.
     def seed(self, sql_filename):
