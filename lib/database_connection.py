@@ -25,7 +25,7 @@ class DatabaseConnection:
             #     row_factory=dict_row)
             
             db_host = "localhost"
-            db_name = os.getenv("POSTGRES_DB")
+            db_name = self._database_name()
             db_user = os.getenv("POSTGRES_USER")
             db_password = os.getenv("POSTGRES_PASSWORD")
 
