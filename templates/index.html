@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='css/index.css')}}">
+        <title>Chitter</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="column" id="column1">
+                Column 1
+            </div>
+
+            <div class="column" id="column2">
+                <h1 class="section-title">Peeps</h1>
+                {% for peep in peeps %}
+                <div class="peep" id="{{peep.id}}">
+                    <p class="by-user">{{users[peep.user_id-1].username}}</p>
+                    <p class="content">{{peep.content}}</p>
+                    <p class="timestamp">{{peep.timestamp}}</p>
+                </div>
+                <br><br>
+                {% endfor %}
+            </div>
+
+            <div class="column" id="column3">
+                Column 3
+            </div>
+
+        </div>
+    </body>
+</html>

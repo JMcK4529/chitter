@@ -1,0 +1,29 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .container {
+    display: flex;
+  }
+  
+  .column {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  /* Optional: Add specific styling for each column */
+  #column1 {
+    background-color: #f8f8f8;
+  }
+  
+  #column2 {
+    background-color: #e5e5e5;
+  }
+  
+  #column3 {
+    background-color: #d2d2d2;
+  }

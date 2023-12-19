@@ -1,0 +1,156 @@
+@@__xproc_block_delimiter__@@
+@@__xproc_block_delimiter__@@
+@@__xproc_block_delimiter__@@
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:4286
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 764-222-763
+127.0.0.1 - - [19/Dec/2023 09:58:03] "GET / HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:4152
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 764-222-763
+127.0.0.1 - - [19/Dec/2023 10:06:39] "GET / HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:4846
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 764-222-763
+127.0.0.1 - - [19/Dec/2023 10:21:43] "GET / HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:4450
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 764-222-763
+127.0.0.1 - - [19/Dec/2023 10:21:59] "GET / HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:4245
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 764-222-763
+127.0.0.1 - - [19/Dec/2023 10:22:46] "GET / HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.57.45.149:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.57.45.149:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.57.45.149:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.57.45.149:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4568
+ * Running on http://10.57.45.149:4568
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [19/Dec/2023 13:09:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Dec/2023 13:09:20] "GET /static/css/index.css HTTP/1.1" 200 -
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4540
+ * Running on http://10.57.45.149:4540
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [19/Dec/2023 13:11:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Dec/2023 13:11:18] "GET /static/css/index.css HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4011
+ * Running on http://10.57.45.149:4011
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [19/Dec/2023 13:25:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Dec/2023 13:25:36] "GET /static/css/index.css HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4095
+ * Running on http://10.57.45.149:4095
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [19/Dec/2023 13:26:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Dec/2023 13:26:11] "GET /static/css/index.css HTTP/1.1" 200 -
