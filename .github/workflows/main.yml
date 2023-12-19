@@ -25,6 +25,8 @@ jobs:
                 sudo apt update
                 sudo apt install postgresql postgresql-client
                 sudo service postgresql start
+                sudo -u postgres createdb chitter
+                sudo -u postgres createdb chitter_test
             
             - name: Set up Python 3.12
               uses: actions/setup-python@v4
@@ -37,8 +39,6 @@ jobs:
                 pip install pipenv
                 pipenv install --dev
                 pipenv run playwright install
-                sudo -u postgres createdb chitter
-                sudo -u postgres createdb chitter_test
             
             - name: Test with pytest
               run: |
