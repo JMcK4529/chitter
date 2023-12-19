@@ -5,30 +5,33 @@ jobs:
     test:
         runs-on: ubuntu-latest
 
-        # services:
-        #   postgres:
-        #     image: postgres:latest
-        #     env:
-        #       POSTGRES_DB: chitter, chitter_test
-        #       POSTGRES_USER: testuser
-        #       POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
-        #     ports:
-        #       - 5432:5432
-        #     options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        services:
+          postgres:
+            image: postgres:latest
+            env:
+              POSTGRES_DB: chitter, chitter_test
+              POSTGRES_USER: postgres
+              POSTGRES_PASSWORD: postgres
+            ports:
+              - 5432:5432
+            options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
         steps:
             - name: Checks out the code
               uses: actions/checkout@v3
 
-            - name: Install PostgreSQL
+            - name: Set Environment Variables
               run: |
-                sudo apt update
-                sudo apt install postgresql postgresql-client
-                sudo service postgresql start
-                sudo -i -u postgres
-                sudo -u postgres createdb chitter
-                sudo -u postgres createdb chitter_test
+                echo "POSTGRES_DB=chitter,chitter_test" >> $GITHUB_ENV
+                echo "POSTGRES_USER=postgres" >> $GITHUB_ENV
+                echo "POSTGRES_PASSWORD=postgres" >> $GITHUB_ENV
             
+            - name: Debug Environment Variables
+              run: |
+                echo "POSTGRES_DB: $POSTGRES_DB"
+                echo "POSTGRES_USER: $POSTGRES_USER"
+                echo "POSTGRES_PASSWORD: $POSTGRES_PASSWORD"
+
             - name: Set up Python 3.12
               uses: actions/setup-python@v4
               with:
