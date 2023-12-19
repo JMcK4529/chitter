@@ -13,31 +13,37 @@ class DatabaseConnection:
     DEV_DATABASE_NAME = "chitter"
     TEST_DATABASE_NAME = "chitter_test"
 
-    def __init__(self, test_mode=False):
+    def __init__(self, test_mode=False, app=None):
         self.test_mode = test_mode
+        self.app = app
 
     # This method connects to PostgreSQL using the psycopg library. We connect
     # to localhost and select the database name given in argument.
     def connect(self):
         try:
-            # self.connection = psycopg.connect(
-            #     f"postgresql://localhost/{self._database_name()}",
-            #     row_factory=dict_row)
-            
-            db_host = "localhost"
-            db_name = self._database_name()
-            db_user = os.getenv("POSTGRES_USER")
-            db_password = os.getenv("POSTGRES_PASSWORD")
-
-            # Construct the connection string
-            connection_string = f"postgresql://{db_user}:{db_password}@{db_host}/{db_name}"
             self.connection = psycopg.connect(
-                connection_string,
+                f"postgresql://localhost/{self._database_name()}",
                 row_factory=dict_row)
+            
+        except:
+            try:
+                db_host = "postgres:5342"
+                db_name = self._database_name()
+                db_user = os.getenv("POSTGRES_USER")
+                db_password = os.getenv("POSTGRES_PASSWORD")
+            
+                if self.app:
+                    self.app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql://{db_user}:{db_password}@{db_host}/{db_name}"
 
-        except psycopg.OperationalError:
-            raise Exception(f"Couldn't connect to the database {self._database_name()}! " \
-                    f"Did you create it using `createdb {self._database_name()}`?")
+                # Construct the connection string
+                connection_string = f"postgresql://{db_user}:{db_password}@{db_host}/{db_name}"
+                self.connection = psycopg.connect(
+                    connection_string,
+                    row_factory=dict_row)
+
+            except psycopg.OperationalError:
+                raise Exception(f"Couldn't connect to the database {self._database_name()}! " \
+                        f"Did you create it using `createdb {self._database_name()}`?")
             
 
 
@@ -87,7 +93,7 @@ class DatabaseConnection:
 def get_flask_database_connection(app):
     if not hasattr(g, 'flask_database_connection'):
         g.flask_database_connection = DatabaseConnection(
-            test_mode=os.getenv('APP_ENV') == 'test')
+            test_mode=os.getenv('APP_ENV') == 'test', app=app)
             #test_mode=True)
         g.flask_database_connection.connect()
     print(f"In get_flask_database_connection: {os.getenv('APP_ENV')}")
