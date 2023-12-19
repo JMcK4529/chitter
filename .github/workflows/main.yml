@@ -31,6 +31,10 @@ jobs:
                 pip install pipenv
                 pipenv install --dev
                 pipenv run playwright install
+
+            - name: Debug environment variables
+              run: |
+                echo "DB_PASSWORD: ${{ secrets.DB_PASSWORD }}"
             
             - name: Test with pytest
               run: |

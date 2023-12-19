@@ -23,7 +23,13 @@ class DatabaseConnection:
             self.connection = psycopg.connect(
                 f"postgresql://localhost/{self._database_name()}",
                 row_factory=dict_row)
-        except:
+        except Exception as e:
+
+            print(f"Error during connection setup: {e}")
+            print(f"Environment variables:")
+            print(f"POSTGRES_USER: {os.getenv('POSTGRES_USER')}")
+            print(f"POSTGRES_PASSWORD: {os.getenv('POSTGRES_PASSWORD')}")
+
             try:
                 db_host = "localhost"
                 db_name = self._database_name()
