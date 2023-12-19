@@ -27,7 +27,7 @@ class DatabaseConnection:
             
         except:
             try:
-                db_host = "postgres:5342"
+                db_host = "postgres:5432"
                 db_name = self._database_name()
                 db_user = os.getenv("POSTGRES_USER")
                 db_password = os.getenv("POSTGRES_PASSWORD")
