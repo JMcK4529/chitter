@@ -20,8 +20,19 @@ class DatabaseConnection:
     # to localhost and select the database name given in argument.
     def connect(self):
         try:
+            # self.connection = psycopg.connect(
+            #     f"postgresql://localhost/{self._database_name()}",
+            #     row_factory=dict_row)
+            
+            db_host = "localhost"
+            db_name = os.getenv("POSTGRES_DB")
+            db_user = os.getenv("POSTGRES_USER")
+            db_password = os.getenv("POSTGRES_PASSWORD")
+
+            # Construct the connection string
+            connection_string = f"postgresql://{db_user}:{db_password}@{db_host}/{db_name}"
             self.connection = psycopg.connect(
-                f"postgresql://localhost/{self._database_name()}",
+                connection_string,
                 row_factory=dict_row)
 
         except psycopg.OperationalError:
