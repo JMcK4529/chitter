@@ -23,28 +23,10 @@ class DatabaseConnection:
             self.connection = psycopg.connect(
                 f"postgresql://localhost/{self._database_name()}",
                 row_factory=dict_row)
-        except Exception as e:
 
-            print(f"Error during connection setup: {e}")
-            print(f"Environment variables:")
-            print(f"POSTGRES_USER: {os.getenv('POSTGRES_USER')}")
-            print(f"POSTGRES_PASSWORD: {os.getenv('POSTGRES_PASSWORD')}")
-
-            try:
-                db_host = "localhost"
-                db_name = self._database_name()
-                db_user = os.getenv("POSTGRES_USER")
-                db_password = os.getenv("POSTGRES_PASSWORD")
-
-                # Construct the connection string
-                connection_string = f"postgresql://{db_user}:{db_password}@{db_host}/{db_name}"
-
-                self.connection = psycopg.connect(
-                    connection_string,
-                    row_factory=dict_row)
-            except psycopg.OperationalError:
-                raise Exception(f"Couldn't connect to the database {self._database_name()}! " \
-                        f"Did you create it using `createdb {self._database_name()}`?")
+        except psycopg.OperationalError:
+            raise Exception(f"Couldn't connect to the database {self._database_name()}! " \
+                    f"Did you create it using `createdb {self._database_name()}`?")
             
 
 

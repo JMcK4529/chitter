@@ -5,20 +5,25 @@ jobs:
     test:
         runs-on: ubuntu-latest
 
-        services:
-          postgres:
-            image: postgres:latest
-            env:
-              POSTGRES_DB: chitter, chitter_test
-              POSTGRES_USER: testuser
-              POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
-            ports:
-              - 5432:5432
-            options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+        # services:
+        #   postgres:
+        #     image: postgres:latest
+        #     env:
+        #       POSTGRES_DB: chitter, chitter_test
+        #       POSTGRES_USER: testuser
+        #       POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD }}
+        #     ports:
+        #       - 5432:5432
+        #     options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
         steps:
             - name: Checks out the code
               uses: actions/checkout@v3
+
+            - name: Install PostgreSQL
+              run: |
+                sudo apt update
+                sudo apt install postgresql postgresql-client
             
             - name: Set up Python 3.12
               uses: actions/setup-python@v4
@@ -31,12 +36,8 @@ jobs:
                 pip install pipenv
                 pipenv install --dev
                 pipenv run playwright install
-
-            - name: Debug environment variables
-              run: |
-                echo "POSTGRES_DB: $POSTGRES_DB"
-                echo "POSTGRES_USER: $POSTGRES_USER"
-                echo "POSTGRES_PASSWORD: $POSTGRES_PASSWORD"
+                pipenv run createdb chitter
+                pipenv run createdb chitter_test
             
             - name: Test with pytest
               run: |
