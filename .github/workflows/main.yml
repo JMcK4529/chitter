@@ -37,8 +37,8 @@ jobs:
                 pip install pipenv
                 pipenv install --dev
                 pipenv run playwright install
-                pipenv run createdb chitter
-                pipenv run createdb chitter_test
+                sudo -u postgres createdb chitter
+                sudo -u postgres createdb chitter_test
             
             - name: Test with pytest
               run: |
