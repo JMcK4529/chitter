@@ -34,7 +34,7 @@ jobs:
 
             - name: Debug environment variables
               run: |
-                echo "DB_PASSWORD: ${{ secrets.DB_PASSWORD }}"
+                env
             
             - name: Test with pytest
               run: |
