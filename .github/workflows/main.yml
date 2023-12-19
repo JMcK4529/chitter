@@ -25,6 +25,7 @@ jobs:
                 sudo apt update
                 sudo apt install postgresql postgresql-client
                 sudo service postgresql start
+                sudo -i -u postgres
                 sudo -u postgres createdb chitter
                 sudo -u postgres createdb chitter_test
             
