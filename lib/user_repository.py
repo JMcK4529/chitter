@@ -13,7 +13,7 @@ class UserRepository:
             )
         for row in rows:
             users.append(
-                User(row['id'], row['username'])
+                User(row['id'], row['username'], row['email'], row['password'])
             )
         return users
     
@@ -25,7 +25,7 @@ class UserRepository:
                 SELECT * FROM users WHERE id=%s;
                 """, [id]
             )[0]
-            return User(row['id'], row['username'])
+            return User(row['id'], row['username'], row['email'], row['password'])
         except:
             raise ValueError(f"User with ID {id} does not exist")
     
@@ -48,7 +48,7 @@ class UserRepository:
                     Peep(row['id'], row['content'],
                         row['timestamp'], row['user_id'])
                 )
-            return User(user_row['id'], user_row['username'], peeps=peeps)
+            return User(user_row['id'], user_row['username'], user_row['email'], user_row['password'], peeps=peeps)
         except:
             raise ValueError(f"User with ID {id} does not exist")
     
@@ -56,15 +56,15 @@ class UserRepository:
         """Inserts a new user into the users table."""
         self._connection.execute(
             """
-            INSERT INTO users (username) VALUES (%s)
-            """, [user.username]
+            INSERT INTO users (username, email, password) VALUES (%s, %s, %s)
+            """, [user.username, user.email, user.password]
         )
         row = self._connection.execute(
             """
             SELECT * FROM users WHERE id=(SELECT MAX(id) FROM users);
             """
         )[0]
-        return User(row['id'], row['username'])
+        return User(row['id'], row['username'], row['email'], row['password'])
 
     def delete(self, id):
         """Deletes a user from the users table."""

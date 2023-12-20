@@ -154,3 +154,126 @@ In get_flask_database_connection: test
  * Debugger PIN: 340-806-706
 127.0.0.1 - - [19/Dec/2023 13:26:11] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [19/Dec/2023 13:26:11] "GET /static/css/index.css HTTP/1.1" 200 -
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4344
+ * Running on http://10.57.45.149:4344
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [19/Dec/2023 23:41:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [19/Dec/2023 23:41:14] "GET /static/css/index.css HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4654
+ * Running on http://10.57.45.149:4654
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [20/Dec/2023 00:21:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [20/Dec/2023 00:21:40] "GET /static/css/index.css HTTP/1.1" 200 -
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4748
+ * Running on http://10.57.46.206:4748
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [20/Dec/2023 13:27:30] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 1478, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/Library/CloudStorage/OneDrive-Arm/Desktop/Makers/My-Work/Chitter/app.py", line 14, in get_index
+    users = user_repo.all()
+            ^^^^^^^^^^^^^^^
+  File "/Users/josmck01/Library/CloudStorage/OneDrive-Arm/Desktop/Makers/My-Work/Chitter/lib/user_repository.py", line 16, in all
+    User(row['id'], row['username'], row['password'])
+TypeError: User.__init__() missing 1 required positional argument: 'password'
+127.0.0.1 - - [20/Dec/2023 13:27:30] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [20/Dec/2023 13:27:30] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [20/Dec/2023 13:27:30] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4242
+ * Running on http://10.57.46.206:4242
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [20/Dec/2023 13:28:07] "[35m[1mGET / HTTP/1.1[0m" 500 -
+Traceback (most recent call last):
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 1478, in __call__
+    return self.wsgi_app(environ, start_response)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 1458, in wsgi_app
+    response = self.handle_exception(e)
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 1455, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 869, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 867, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/.local/share/virtualenvs/Chitter-AhUy_Aj1/lib/python3.12/site-packages/flask/app.py", line 852, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/josmck01/Library/CloudStorage/OneDrive-Arm/Desktop/Makers/My-Work/Chitter/app.py", line 14, in get_index
+    users = user_repo.all()
+            ^^^^^^^^^^^^^^^
+  File "/Users/josmck01/Library/CloudStorage/OneDrive-Arm/Desktop/Makers/My-Work/Chitter/lib/user_repository.py", line 16, in all
+    User(row['id'], row['username'], row['password'])
+TypeError: User.__init__() missing 1 required positional argument: 'password'
+127.0.0.1 - - [20/Dec/2023 13:28:07] "GET /?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [20/Dec/2023 13:28:07] "GET /?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [20/Dec/2023 13:28:07] "GET /?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4953
+ * Running on http://10.57.46.206:4953
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [20/Dec/2023 15:27:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [20/Dec/2023 15:27:12] "GET /static/css/index.css HTTP/1.1" 200 -
+In get_flask_database_connection: test
