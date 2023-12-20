@@ -28,7 +28,8 @@ class DatabaseConnection:
             try:
                 self.connection = psycopg.connect(
                     user="postgres", host="localhost", 
-                    password="postgres", dbname="chitter_test"
+                    password="postgres", dbname="chitter_test",
+                    row_factory=dict_row
                 )
             
             except psycopg.OperationalError:
