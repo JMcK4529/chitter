@@ -1,6 +1,7 @@
 from playwright.sync_api import Page, expect
 
 def test_get_index(db_connection, page, test_web_address):
+    db_connection.seed("seeds/chitter.sql")
     page.goto(f"http://{test_web_address}/")
 
     div_list = page.locator("div")
