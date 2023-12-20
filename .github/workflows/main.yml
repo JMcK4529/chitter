@@ -37,8 +37,6 @@ jobs:
 
             - name: Connect to PostgreSQL
               run: |
-                pwd
-                ls -A
                 python psql_setup.py
             
             - name: Test with pytest
