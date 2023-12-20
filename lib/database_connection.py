@@ -24,9 +24,16 @@ class DatabaseConnection:
             self.connection = psycopg.connect(
                 f"postgresql://localhost/{self._database_name()}",
                 row_factory=dict_row)
-        except psycopg.OperationalError:
-            raise Exception(f"Couldn't connect to the database {self._database_name()}! " \
-                    f"Did you create it using `createdb {self._database_name()}`?")
+        except:
+            try:
+                self.connection = psycopg.connect(
+                    user="postgres", host="localhost", 
+                    password="postgres", dbname=f"{self._database_name}"
+                )
+            
+            except psycopg.OperationalError:
+                raise Exception(f"Couldn't connect to the database {self._database_name()}! " \
+                        f"Did you create it using `createdb {self._database_name()}`?")
             
     # This method seeds the database with the given SQL file.
     # We use it to set up our database ready for our tests or application.
