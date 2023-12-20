@@ -4,6 +4,7 @@ def test_get_index(db_connection, page, test_web_address):
     page.goto(f"http://{test_web_address}/")
 
     div_list = page.locator("div")
+    print(div_list.all())
     class_list = [
         "container", "column", "column", "peep", "column"
     ]
