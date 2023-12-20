@@ -5,6 +5,7 @@ def test_get_index(db_connection, page, test_web_address):
 
     div_list = page.locator("div")
     print(div_list.all())
+    print(page.content())
     class_list = [
         "container", "column", "column", "peep", "column"
     ]
@@ -22,3 +23,5 @@ def test_get_index(db_connection, page, test_web_address):
 
     by_users = page.locator(".by-user")
     expect(by_users).to_have_text("JMcK4529")
+
+    assert None == "DEBUG"

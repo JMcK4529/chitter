@@ -277,3 +277,45 @@ In get_flask_database_connection: test
 127.0.0.1 - - [20/Dec/2023 15:27:12] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [20/Dec/2023 15:27:12] "GET /static/css/index.css HTTP/1.1" 200 -
 In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4449
+ * Running on http://10.57.47.120:4449
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [20/Dec/2023 22:45:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [20/Dec/2023 22:45:27] "GET /static/css/index.css HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4670
+ * Running on http://10.57.47.120:4670
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [20/Dec/2023 22:45:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [20/Dec/2023 22:45:58] "GET /static/css/index.css HTTP/1.1" 200 -
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4329
+ * Running on http://10.57.47.120:4329
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [20/Dec/2023 23:14:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [20/Dec/2023 23:14:20] "GET /static/css/index.css HTTP/1.1" 200 -
+In get_flask_database_connection: test
