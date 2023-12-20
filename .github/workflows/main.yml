@@ -36,9 +36,8 @@ jobs:
 
             - name: Connect to PostgreSQL
               run: |
-                su - postgres
-                createdb chitter
-                createdb chitter_test
+                createdb -h localhost -p 5432 chitter
+                createdb -h localhost -p 5432 chitter_test
             
             - name: Test with pytest
               run: |
