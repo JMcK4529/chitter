@@ -9,11 +9,14 @@
     <body>
         <div class="container">
             <div class="column" id="column1">
-                <div class="user-details">
-                    {{ current_user }}
-                    <br>
-                    <form action="/logout" method="POST">
-                        <input type="submit" value="Logout">
+                <div class="login-prompt">
+                    <h1>Login</h1>
+                    <form action="/login" method="POST">
+                        <label>Username <input type="text" name="Username or Email"></label>
+                        <br>
+                        <label>Password <input type="password" name="Password"></label>
+                        <br>
+                        <input type="submit" value="Login">
                     </form>
                 </div>
             </div>
@@ -31,10 +34,7 @@
             </div>
 
             <div class="column" id="column3">
-                <h1>Peep!</h1>
-                <form action="/peep_post" method="POST">
-                    <label>Type your peep here!<input type="text" name="new_peep"></label>
-                </form>
+                <a href="/login">Login</a> or <a href="/signup">sign up</a> to start peeping!
             </div>
 
         </div>
