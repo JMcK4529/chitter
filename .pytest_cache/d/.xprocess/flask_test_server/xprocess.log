@@ -4158,3 +4158,104 @@ In get_flask_database_connection: test
 In get_flask_database_connection: test
 In get_flask_database_connection: test
 In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4365
+ * Running on http://192.168.1.249:4365
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [24/Dec/2023 20:26:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:49] "GET /static/css/index.css HTTP/1.1" 200 -
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4942
+ * Running on http://192.168.1.249:4942
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [24/Dec/2023 20:26:50] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:50] "GET /static/css/index.css HTTP/1.1" 200 -
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4419
+ * Running on http://192.168.1.249:4419
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [24/Dec/2023 20:26:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:51] "GET /static/css/index.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:51] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:51] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [24/Dec/2023 20:26:51] "[32mPOST /login HTTP/1.1[0m" 302 -
+127.0.0.1 - - [24/Dec/2023 20:26:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:51] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+In get_flask_database_connection: test
+In get_flask_database_connection: test
+In get_flask_database_connection: test
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4647
+ * Running on http://192.168.1.249:4647
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [24/Dec/2023 20:26:52] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:52] "GET /static/css/index.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:52] "POST /login HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:52] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [24/Dec/2023 20:26:52] "[32mPOST /login HTTP/1.1[0m" 302 -
+127.0.0.1 - - [24/Dec/2023 20:26:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:52] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+In get_flask_database_connection: test
+In get_flask_database_connection: test
+In get_flask_database_connection: test
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4913
+ * Running on http://192.168.1.249:4913
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [24/Dec/2023 20:26:53] "GET /login HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:53] "GET /static/css/index.css HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:53] "[32mPOST /login HTTP/1.1[0m" 302 -
+127.0.0.1 - - [24/Dec/2023 20:26:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:53] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+127.0.0.1 - - [24/Dec/2023 20:26:53] "[32mPOST /logout HTTP/1.1[0m" 302 -
+127.0.0.1 - - [24/Dec/2023 20:26:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:53] "[36mGET /static/css/index.css HTTP/1.1[0m" 304 -
+@@__xproc_block_delimiter__@@
+ * Serving Flask app 'app'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4747
+ * Running on http://192.168.1.249:4747
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 340-806-706
+127.0.0.1 - - [24/Dec/2023 20:26:54] "GET /signup HTTP/1.1" 200 -
+127.0.0.1 - - [24/Dec/2023 20:26:54] "GET /static/css/index.css HTTP/1.1" 200 -

@@ -118,9 +118,17 @@ def test_logout(db_connection, page, test_web_address):
     assert all("user-details" not in div.get_attribute("class") 
                for div in page.locator("div").all())
 
-@pytest.mark.skip(reason="Not yet implemented.")
+#@pytest.mark.skip(reason="Not yet implemented.")
 def test_get_signup(db_connection, page, test_web_address):
-    stuff=None
+    db_connection.seed("seeds/chitter.sql")
+    # Go to signup page
+    page.goto(f"http://{test_web_address}/signup")
+    # Check for expected inputs within form
+    inputs = page.locator("input").all()
+    names = ["Email", "Username", "Password", "Verify"]
+    for input, name in zip(inputs[:-1], names):
+        expect(input).to_have_attribute("name", name)
+    expect(inputs[-1]).to_have_attribute("type", "submit")
 
 @pytest.mark.skip(reason="Not yet implemented.")
 def test_post_signup(db_connection, page, test_web_address):

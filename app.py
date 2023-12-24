@@ -73,8 +73,22 @@ def post_logout():
     
 @app.route("/signup", methods=['GET'])
 def get_signup():
-    return None
-        
+    return render_template("signup.html", error=None)
+
+"""
+@app.route("/signup", methods=['POST'])
+def post_signup():
+    connection = get_flask_database_connection(app)
+    email = request.form['Email']
+    username = request.form['Username']
+    password = request.form['Password']
+    verify_password = request.form['Verify']
+    if password != verify_password:
+        return render_template(
+            'signup.html', 
+            error="Passwords did not match.")
+    user_repo = UserRepository(connection)
+""" 
 
 if __name__ == "__main__":
     #app.run(debug=True, port=int(os.environ.get('PORT', 5001)))
