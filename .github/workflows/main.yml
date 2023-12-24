@@ -43,4 +43,5 @@ jobs:
               run: |
                 export CREATOR_PASS="${{ secrets.CREATOR_PASS }}"
                 export CREATOR_EMAIL="${{ secrets.CREATOR_EMAIL }}"
+                export SESSION_KEY="${{ secrets.SESSION_KEY }}"
                 pipenv run pytest
