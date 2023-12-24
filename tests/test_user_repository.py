@@ -72,3 +72,25 @@ def test_user_repo_delete(db_connection):
     assert repo.all() == [
         User(1, 'JMcK4529', email, hash_pass, peeps=[])
     ]
+
+def test_user_repo_find_by_email(db_connection):
+    db_connection.seed("seeds/chitter.sql")
+    repo = UserRepository(db_connection)
+    assert repo.find_by_email(email) == \
+        User(1, 'JMcK4529', email, hash_pass, peeps=[])
+    
+def test_user_repo_find_by_username(db_connection):
+    db_connection.seed("seeds/chitter.sql")
+    repo = UserRepository(db_connection)
+    assert repo.find_by_username('JMcK4529') == \
+        User(1, 'JMcK4529', email, hash_pass, peeps=[])
+    
+def test_user_repo_check_password(db_connection):
+    db_connection.seed("seeds/chitter.sql")
+    repo = UserRepository(db_connection)
+    assert repo.check_password(email, os.getenv('CREATOR_PASS'))
+    assert repo.check_password('JMcK4529', os.getenv('CREATOR_PASS'))
+    assert repo.check_password(email, 'failure') == False
+    with pytest.raises(ValueError) as err:
+        repo.check_password('NonUser', 'fakepassword')
+    assert str(err.value) == "NonUser does not exist"
