@@ -1,5 +1,11 @@
 [
   "tests/test_app.py::test_get_index[chromium]",
+  "tests/test_app.py::test_get_login[chromium]",
+  "tests/test_app.py::test_get_signup[chromium]",
+  "tests/test_app.py::test_index_checks_for_session[chromium]",
+  "tests/test_app.py::test_logout[chromium]",
+  "tests/test_app.py::test_post_login[chromium]",
+  "tests/test_app.py::test_post_signup[chromium]",
   "tests/test_database_connection.py::test_database_connection",
   "tests/test_peep.py::test_invalid_peep_is_valid_returns_false",
   "tests/test_peep.py::test_peep_constructs",
@@ -19,9 +25,12 @@
   "tests/test_user.py::test_user_repr",
   "tests/test_user.py::test_valid_user_is_valid_returns_true",
   "tests/test_user_repository.py::test_user_repo_all",
+  "tests/test_user_repository.py::test_user_repo_check_password",
   "tests/test_user_repository.py::test_user_repo_constructs",
   "tests/test_user_repository.py::test_user_repo_create",
   "tests/test_user_repository.py::test_user_repo_delete",
   "tests/test_user_repository.py::test_user_repo_find",
+  "tests/test_user_repository.py::test_user_repo_find_by_email",
+  "tests/test_user_repository.py::test_user_repo_find_by_username",
   "tests/test_user_repository.py::test_user_repo_find_with_peeps"
 ]
