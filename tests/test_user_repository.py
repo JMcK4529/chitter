@@ -22,7 +22,6 @@ def test_user_repo_constructs():
     
 def test_user_repo_all(db_connection):
     db_connection.seed("seeds/chitter.sql")
-    print(os.environ)
     repo = UserRepository(db_connection)
     assert repo.all() == [
         User(1, 'JMcK4529', email, hash_pass, peeps=[])
@@ -40,7 +39,6 @@ def test_user_repo_find_with_peeps(db_connection):
     db_connection.seed("seeds/chitter.sql")
     repo = UserRepository(db_connection)
     fwp = repo.find_with_peeps(1)
-    print(type(fwp.peeps[0].timestamp))
     assert repo.find_with_peeps(1) == \
         User(
             1, 'JMcK4529', email, hash_pass,
