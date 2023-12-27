@@ -1,6 +1,7 @@
-import os
+import os, hashlib
 from dotenv import load_dotenv
 from flask import Flask, render_template, url_for, session, request, redirect
+from lib.user import User
 from lib.user_repository import UserRepository
 from lib.peep_repository import PeepRepository
 from lib.database_connection import get_flask_database_connection
@@ -34,11 +35,8 @@ def get_index():
 def get_login():
     return render_template('login.html', error=None)
 
-@app.route('/login', methods=['POST'])
-def post_login():
-    connection = get_flask_database_connection(app)
-    username = request.form['Username or Email']
-    password = request.form['Password']
+def login_user(connection, username, password):
+    """Logic for logging in a user"""
     user_repo = UserRepository(connection)
     try:
         if user_repo.check_password(username, password):
@@ -61,6 +59,14 @@ def post_login():
         return render_template(
             'login.html', 
             error="Username or password was incorrect.")
+
+@app.route('/login', methods=['POST'])
+def post_login():
+    connection = get_flask_database_connection(app)
+    username = request.form['Username or Email']
+    password = request.form['Password']
+    return login_user(connection, username, password)
+    
     
 @app.route("/logout", methods=['POST'])
 def post_logout():
@@ -75,7 +81,6 @@ def post_logout():
 def get_signup():
     return render_template("signup.html", error=None)
 
-"""
 @app.route("/signup", methods=['POST'])
 def post_signup():
     connection = get_flask_database_connection(app)
@@ -87,8 +92,30 @@ def post_signup():
         return render_template(
             'signup.html', 
             error="Passwords did not match.")
+    elif password in ["", None,] \
+        or (type(password) == str and password.strip() == "") \
+            or len(password) < 8:
+        return render_template(
+            'signup.html', 
+            error="Password must contain at least 8 characters.")
+    hash_pass = hashlib.sha256(password.encode('utf-8')).hexdigest()
+    new_user = User(None, username, email, hash_pass)
+    if not new_user.is_valid():
+        return render_template("signup.html",
+                               error=new_user.generate_errors())
     user_repo = UserRepository(connection)
-""" 
+    current_users = user_repo.all()
+    current_emails = [user.email for user in current_users]
+    if email in current_emails:
+        return render_template("signup.html",
+                    error="Email address already has an associated account.")
+    current_usernames = [user.username for user in current_users]
+    if username in current_usernames:
+        return render_template("signup.html",
+                               error="Username is already in use.")
+    
+    user_repo.create(new_user)
+    return login_user(connection, username, password)
 
 if __name__ == "__main__":
     #app.run(debug=True, port=int(os.environ.get('PORT', 5001)))

@@ -118,7 +118,6 @@ def test_logout(db_connection, page, test_web_address):
     assert all("user-details" not in div.get_attribute("class") 
                for div in page.locator("div").all())
 
-#@pytest.mark.skip(reason="Not yet implemented.")
 def test_get_signup(db_connection, page, test_web_address):
     db_connection.seed("seeds/chitter.sql")
     # Go to signup page
@@ -130,6 +129,103 @@ def test_get_signup(db_connection, page, test_web_address):
         expect(input).to_have_attribute("name", name)
     expect(inputs[-1]).to_have_attribute("type", "submit")
 
-@pytest.mark.skip(reason="Not yet implemented.")
+#@pytest.mark.skip(reason="Not yet implemented.")
 def test_post_signup(db_connection, page, test_web_address):
-    stuff=None
+    db_connection.seed("seeds/chitter.sql")
+    # Go to signup page
+    page.goto(f"http://{test_web_address}/signup")
+
+    # Attempt signup with empty fields
+    page.get_by_label("Email").fill("")
+    page.get_by_label("Username").fill("")
+    page.get_by_label("Password", exact=True).fill("NewPassword")
+    page.get_by_label("Verify Password").fill("NewPassword")
+    page.get_by_role("button").click()
+    # Expect template render with error div
+    error_text = "Username can't be empty."
+    assert any(error_text in div.inner_text()
+               for div in page.locator("div").all()
+               if div.get_attribute("class") == "error")
+    
+    # Attempt signup with empty fields except username
+    page.get_by_label("Email").fill("")
+    page.get_by_label("Username").fill("NewUsername")
+    page.get_by_label("Password", exact=True).fill("NewPassword")
+    page.get_by_label("Verify Password").fill("NewPassword")
+    page.get_by_role("button").click()
+    # Expect template render with error div
+    error_text = "Email can't be empty."
+    assert any(error_text in div.inner_text()
+               for div in page.locator("div").all()
+               if div.get_attribute("class") == "error")
+    
+    # Attempt signup with empty fields except username
+    page.get_by_label("Email").fill("NewEmail@test.com")
+    page.get_by_label("Username").fill("NewUsername")
+    page.get_by_label("Password", exact=True).fill("")
+    page.get_by_label("Verify Password").fill("")
+    page.get_by_role("button").click()
+    # Expect template render with error div
+    error_text = "Password must contain at least 8 characters."
+    assert any(error_text in div.inner_text()
+               for div in page.locator("div").all()
+               if div.get_attribute("class") == "error")
+
+    # Attempt signup with all test/creator details
+    page.get_by_label("Email").fill("test@mail.co.uk")
+    page.get_by_label("Username").fill("JMcK4529")
+    page.get_by_label("Password", exact=True).fill(os.getenv('CREATOR_PASS'))
+    page.get_by_label("Verify Password").fill(os.getenv('CREATOR_PASS'))
+    page.get_by_role("button").click()
+    # Expect template render with error div
+    error_text = "Email address already has an associated account."
+    assert any(error_text in div.inner_text()
+               for div in page.locator("div").all()
+               if div.get_attribute("class") == "error")
+    
+    # Attempt signup with test/creator email, different otherwise
+    page.get_by_label("Email").fill("test@mail.co.uk")
+    page.get_by_label("Username").fill("NewUsername")
+    page.get_by_label("Password", exact=True).fill("NewPassword")
+    page.get_by_label("Verify Password").fill("NewPassword")
+    page.get_by_role("button").click()
+    # Expect template render with error div
+    error_text = "Email address already has an associated account."
+    assert any(error_text in div.inner_text()
+               for div in page.locator("div").all()
+               if div.get_attribute("class") == "error")
+    
+    # Attempt signup with test/creator username, different otherwise
+    page.get_by_label("Email").fill("NewEmail@test.com")
+    page.get_by_label("Username").fill("JMcK4529")
+    page.get_by_label("Password", exact=True).fill("NewPassword")
+    page.get_by_label("Verify Password").fill("NewPassword")
+    page.get_by_role("button").click()
+    # Expect template render with error div
+    error_text = "Username is already in use."
+    assert any(error_text in div.inner_text()
+               for div in page.locator("div").all()
+               if div.get_attribute("class") == "error")
+    
+    # Attempt signup with unused email and username, mismatched passwords
+    page.get_by_label("Email").fill("NewEmail@test.com")
+    page.get_by_label("Username").fill("NewUsername")
+    page.get_by_label("Password", exact=True).fill("NewPassword1")
+    page.get_by_label("Verify Password").fill("NewPassword2")
+    page.get_by_role("button").click()
+    # Expect template render with error div
+    error_text = "Passwords did not match."
+    assert any(error_text in div.inner_text()
+               for div in page.locator("div").all()
+               if div.get_attribute("class") == "error")
+    
+    # Signup with unused email and username, correctly verified password
+    page.get_by_label("Email").fill("NewEmail@test.com")
+    page.get_by_label("Username").fill("NewUsername")
+    page.get_by_label("Password", exact=True).fill("NewPassword")
+    page.get_by_label("Verify Password").fill("NewPassword")
+    page.get_by_role("button").click()
+    # Expect index page with NewUsername displayed
+    expect(page).to_have_url(f"http://{test_web_address}/")
+    assert any(div.get_attribute("class") == "user-details"
+               for div in page.locator("div").all())
