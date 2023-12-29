@@ -13,7 +13,7 @@
                     {{ current_user }}
                     <br>
                     <form action="/logout" method="POST">
-                        <input type="submit" value="Logout">
+                        <input type="submit" name="logout" value="Logout">
                     </form>
                 </div>
             </div>
@@ -34,6 +34,7 @@
                 <h1>Peep!</h1>
                 <form action="/peep_post" method="POST">
                     <label>Type your peep here!<input type="text" name="new_peep"></label>
+                    <input type="submit" name="submit-peep" value="PEEP!">
                 </form>
             </div>
 
