@@ -47,3 +47,22 @@ def test_peep_repo_delete(db_connection):
         Peep(1, 'Welcome to Chitter!', 
              datetime.fromisoformat('2023-12-07 11:13:15'), 1)
     ]
+
+def test_sort_peeps_reverse_order(db_connection):
+    db_connection.seed("seeds/chitter.sql")
+    repo = PeepRepository(db_connection)
+    now = datetime.now()
+    now_string = datetime.fromisoformat(now.strftime("%Y-%m-%d %H:%M:%S"))
+    repo.create(Peep(2, "test content", now_string, 1))
+    assert repo.all() == [
+        Peep(1, 'Welcome to Chitter!', 
+             datetime.fromisoformat('2023-12-07 11:13:15'), 1),
+        Peep(2, "test content", datetime.fromisoformat(now_string.strftime("%Y-%m-%d %H:%M:%S")), 1)
+    ]
+    assert sorted(repo.all(), key=lambda peep: peep.timestamp.strftime("%Y-%m-%d %H:%M:%S"), reverse=True) == [
+        Peep(2, "test content", 
+             datetime.fromisoformat(
+                 now_string.strftime("%Y-%m-%d %H:%M:%S")), 1),
+        Peep(1, 'Welcome to Chitter!', 
+             datetime.fromisoformat('2023-12-07 11:13:15'), 1)
+    ]
