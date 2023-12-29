@@ -105,13 +105,15 @@ def test_logout(db_connection, page, test_web_address):
     # Sign in as test/creator
     page.get_by_label("Username").fill("JMcK4529")
     page.get_by_label("Password").fill(os.getenv('CREATOR_PASS'))
-    page.get_by_role("button").click()
+    for input in page.locator("input").all():
+        print(input.get_attribute("name"))
+    [input.click() for input in page.locator("input").all() if input.get_attribute("name") == "login"]
     # Check for redirect to index page with username displayed
     expect(page).to_have_url(f"http://{test_web_address}/")
     assert any("JMcK4529" in div.inner_text() 
                for div in page.locator("div").all())
     # Click Logout
-    page.get_by_role("button").click()
+    [input.click() for input in page.locator("input").all() if input.get_attribute("name") == "logout"]
     # Check for redirect to index page without user-details div
     expect(page).to_have_url(f"http://{test_web_address}/")
     print([div.get_attribute("class") for div in page.locator("div").all()])
@@ -129,7 +131,6 @@ def test_get_signup(db_connection, page, test_web_address):
         expect(input).to_have_attribute("name", name)
     expect(inputs[-1]).to_have_attribute("type", "submit")
 
-#@pytest.mark.skip(reason="Not yet implemented.")
 def test_post_signup(db_connection, page, test_web_address):
     db_connection.seed("seeds/chitter.sql")
     # Go to signup page
@@ -229,3 +230,31 @@ def test_post_signup(db_connection, page, test_web_address):
     expect(page).to_have_url(f"http://{test_web_address}/")
     assert any(div.get_attribute("class") == "user-details"
                for div in page.locator("div").all())
+
+def test_post_peep_post(db_connection, page, test_web_address):
+    db_connection.seed("seeds/chitter.sql")
+    # Go to signup page
+    page.goto(f"http://{test_web_address}/signup")
+    # Sign up as a new user
+    page.get_by_label("Email").fill("testuser@test.co.uk")
+    page.get_by_label("Username").fill("TestUsername")
+    page.get_by_label("Password", exact=True).fill("TestPassword")
+    page.get_by_label("Verify Password").fill("TestPassword")
+    page.get_by_role("button").click()
+    # Check for redirect to index page (logged in)
+    expect(page).to_have_url(f"http://{test_web_address}/")
+    assert any(div.get_attribute("class") == "user-details"
+               for div in page.locator("div").all())
+    # Fill in peep_post form and submit
+    page.get_by_label("Type your peep here!").fill("This is my new test peep!")
+    [input.click() for input in page.locator("input").all() if input.get_attribute("name") == "submit-peep"]
+    # Check that the new peep appears above the old one
+    div_tags = page.locator("div").all()
+    ids = []
+    for div in div_tags:
+        try:
+            if div.get_attribute("class") == "peep":
+                ids.append((div_tags.index(div), int(div.get_attribute("id"))))
+        except:
+            pass
+    assert ids[0][1] > ids[1][1]

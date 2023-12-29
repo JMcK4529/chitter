@@ -1,7 +1,9 @@
 import os, hashlib
+from datetime import datetime
 from dotenv import load_dotenv
 from flask import Flask, render_template, url_for, session, request, redirect
 from lib.user import User
+from lib.peep import Peep
 from lib.user_repository import UserRepository
 from lib.peep_repository import PeepRepository
 from lib.database_connection import get_flask_database_connection
@@ -16,7 +18,15 @@ def get_index():
     user_repo = UserRepository(connection)
     peep_repo = PeepRepository(connection)
     users = user_repo.all()
+    # peeps = peep_repo.all()
+    # Sort peeps in reverse order.
     peeps = peep_repo.all()
+    peeps = sorted(
+                peeps,
+                key=lambda peep: peep.timestamp.strftime("%S"),
+                reverse=True
+                )
+    
     if 'user_id' in session:
         return render_template(
             'index.html', 
@@ -116,6 +126,18 @@ def post_signup():
     
     user_repo.create(new_user)
     return login_user(connection, username, password)
+
+@app.route("/peep_post", methods=['POST'])
+def post_peep():
+    connection = get_flask_database_connection(app)
+    content = request.form['new_peep']
+    now = datetime.now()
+    now_string = now.strftime("%Y-%m-%d %H:%M:%S")
+    timestamp = datetime.fromisoformat(now_string)
+    user_id = session['user_id']
+    peep_repo = PeepRepository(connection)
+    peep_repo.create(Peep(None, content, timestamp, user_id))
+    return redirect(url_for("get_index"))
 
 if __name__ == "__main__":
     #app.run(debug=True, port=int(os.environ.get('PORT', 5001)))
